@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FFXIV | 한글 패치 제작소</title>
+    <style>
+      @font-face {
+        font-family: "Noto Sans KR";
+        font-weight: 100;
+        src: url("https://korean-patch.github.io/Noto_Sans_KR/NotoSansKR-Thin.otf");
+      }
+
+      @font-face {
+        font-family: "Noto Sans KR";
+        font-weight: 300;
+        src: url("https://korean-patch.github.io/Noto_Sans_KR/NotoSansKR-Light.otf");
+      }
+
+      @font-face {
+        font-family: "Noto Sans KR";
+        font-weight: 400;
+        src: url("https://korean-patch.github.io/Noto_Sans_KR/NotoSansKR-Regular.otf");
+      }
+
+      @font-face {
+        font-family: "Noto Sans KR";
+        font-weight: 500;
+        src: url("https://korean-patch.github.io/Noto_Sans_KR/NotoSansKR-Medium.otf");
+      }
+
+      @font-face {
+        font-family: "Noto Sans KR";
+        font-weight: 700;
+        src: url("https://korean-patch.github.io/Noto_Sans_KR/NotoSansKR-Bold.otf");
+      }
+
+      @font-face {
+        font-family: "Noto Sans KR";
+        font-weight: 900;
+        src: url("https://korean-patch.github.io/Noto_Sans_KR/NotoSansKR-Black.otf");
+      }
+
+      body {
+        background-color: #111111;
+        color: #eeeeee;
+        cursor: default;
+        display: grid;
+        font-family: "Noto Sans KR";
+        justify-items: center;
+        margin: 0;
+      }
+
+      .main-panel {
+        background-color: #222222;
+        border-radius: 1em;
+        box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, 0.5),
+          -2.5px -2.5px 10px rgba(0, 0, 0, 0.5);
+        gap: 2em;
+        margin: 2em;
+        overflow: hidden;
+        width: 50em;
+      }
+
+      .header-background {
+        align-items: end;
+        background: linear-gradient(
+            180deg,
+            rgba(34, 34, 34, 0),
+            rgba(34, 34, 34, 1)
+          ),
+          url("https://korean-patch.github.io/images/ffxiv.jpg");
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: 50em;
+        display: grid;
+        height: 20.5em;
+        justify-items: center;
+        width: 50em;
+      }
+
+      .main-content {
+        display: grid;
+        gap: 2em;
+        justify-items: center;
+        padding-bottom: 4em;
+        padding-top: 1em;
+      }
+
+      .button {
+        background-color: #5511aa;
+        border-radius: 0.25em;
+        box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, 0.1),
+          -2.5px -2.5px 10px rgba(0, 0, 0, 0.1);
+        color: #eeeeee;
+        cursor: pointer;
+        font-size: 1.1em;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 1em;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.5s;
+      }
+
+      .button:hover {
+        filter: brightness(75%);
+      }
+
+      .content-text {
+        text-align: left;
+        width: 42em;
+      }
+
+      .content-text-title {
+        color: #ccaaff;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      .content-text a {
+        color: #aa55ff;
+        font-size: 1.25em;
+        text-decoration: none;
+      }
+
+      .content-aligned {
+        display: grid;
+        justify-items: center;
+      }
+
+      .instruction {
+        color: #aaaaaa;
+      }
+
+      .cards {
+        display: grid;
+        gap: 2em;
+      }
+
+      .card {
+        background-color: #333333;
+        border-radius: 1em;
+        box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, 0.1),
+          -2.5px -2.5px 10px rgba(0, 0, 0, 0.1);
+        color: #eeeeee;
+        cursor: pointer;
+        overflow: hidden;
+        text-decoration: none;
+        transition: all 0.5s;
+        width: 15em;
+      }
+
+      .card:hover {
+        filter: brightness(75%);
+      }
+
+      .card-title {
+        margin: 1em;
+        text-align: center;
+      }
+
+      .card-image-container {
+        overflow: hidden;
+        height: 8.4375em;
+        width: 15em;
+      }
+
+      .card-image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 15em;
+        height: 8.4375em;
+        transition: all 0.5s;
+        width: 15em;
+      }
+
+      .card:hover .card-image-container .card-image {
+        transform: scale(1.1);
+      }
+
+      .image-discord-generic {
+        background-color: #5865f2;
+        background-image: url("https://korean-patch.github.io/images/discord-logo-white.svg");
+        background-size: 10em;
+      }
+
+      .image-aether-assembled {
+        background-image: url("https://cdn.discordapp.com/banners/466005309240901642/4c1bd835545b8d722311f1c730d9ce53.webp?size=240");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-panel">
+      <div class="header-background">
+        <h1>파이널 판타지 14 한글 패치</h1>
+      </div>
+      <div class="main-content">
+        <a class="button">다운로드</a>
+        <div class="content-text">
+          <p>파이널 판타지 14 글로벌 서버 클라이언트용 한글 패치입니다.</p>
+          <p>
+            클라이언트 전체 텍스트 한글 패치 (특정 컨텐츠 제외), 한글 출력용
+            폰트, 한글 채팅 패치 등이 포함되어 있습니다.
+          </p>
+        </div>
+        <div class="content-text">
+          <div class="content-text-title">Q. 한글 패치는 약관 위반인가요?</div>
+          <p>
+            네. 클라이언트가 사용하는 데이터 파일을 수정하는 행위이니만큼 게임
+            약관을 위배하는 행위입니다.
+          </p>
+          <p>
+            본 한글 패치는 철저히 클라이언트의 컴퓨터 내부에서만 수정 작업이
+            이루어지며 게임 서버로 송수신되는 정보가 없도록 최대한 안전하게
+            만들어져 있습니다.
+          </p>
+          <p>
+            또한 패치 프로그램의 소스 코드는
+            <a
+              href="https://github.com/korean-patch/ffxiv-patch-ui"
+              target="_blank"
+              rel="noopener noreferrer"
+              >여기</a
+            >
+            에 공개되어 자유롭게 열람하실 수 있습니다.
+          </p>
+          <p>
+            하지만 궁극적으로 한글 패치 사용 및 약관 위반에 대한 책임은
+            사용자에게 있다는 것을 고지해드립니다.
+          </p>
+        </div>
+        <div class="content-text">
+          <div class="content-text-title">
+            Q. 전체 텍스트를 전부 한글로 패치하지 않고 채팅만 패치할 수 있나요?
+          </div>
+          <p>
+            네. 패치 프로그램을 다운로드받으신 후 실행하시면 가능한 패치 옵션을
+            선택하실 수 있습니다.
+          </p>
+        </div>
+        <div class="content-text">
+          <div class="content-text-title">
+            Q. 게임 업데이트 후 버전이 맞지 않다고 떠요!
+          </div>
+          <p>
+            한글패치 디스코드에 가입하신 후 "문의-제보" 채널에 @admin 역할을
+            태그해 알려주시면 최대한 빨리 업데이트 해 드립니다.
+          </p>
+        </div>
+        <div class="content-text">
+          <div class="content-text-title">
+            Q. 버그를 발견했어요! / 패치가 작동을 안 해요!
+          </div>
+          <p>
+            한글패치 디스코드에 가입하신 후 "문의-제보" 채널에 문의해주세요.
+          </p>
+        </div>
+        <div class="content-aligned">
+          <h1>북미 한인 커뮤니티 목록</h1>
+          <div class="instruction">
+            ※ 목록에 자신의 커뮤니티를 추가하고 싶으시면 한글패치 디스코드
+            "커뮤니티-신청" 채널에서 신청해주세요.
+          </div>
+        </div>
+        <div class="cards">
+          <a
+            class="card"
+            href="https://discord.gg/MgkksjWbh5"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="card-image-container">
+              <div class="card-image image-discord-generic"></div>
+            </div>
+            <div class="card-title">한글패치 (디스코드)</div>
+          </a>
+          <a
+            class="card"
+            href="https://discord.com/invite/S4R6Q4SFRH"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="card-image-container">
+              <div class="card-image image-aether-assembled"></div>
+            </div>
+            <div class="card-title">Aether Assembled<br />(디스코드)</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
